@@ -6,7 +6,8 @@
 
 ### Assignment 0
 
-// TODO 
+We have said the decision tree is hard to build in presence of high entropy. The dataset with higher entropy is MONK-1. Because the probability is evenly distributed between the possible outcomes. That is, every entry can be either true or false with a probability of 0.5. The other two datasets  [ASSUMPTION: CHECK]
+
 ### Assignment 1
 
 Entropy of the datasets: 
@@ -40,7 +41,15 @@ Dataset | a1 | a2 | a3 | a4 | a5 | a6
 **MONK-2** | 0.00375617737751 | 0.00245849866608 | 0.00105614771589 | 0.0156642472926 | 0.0172771769379 | 0.00624762223688
 **MONK-3** | 0.00712086839607 | 0.293736173508 | 0.000831114044534 | 0.00289181728865 | 0.25591172462 | 0.0070770260741
 
+To grow the decision tree we generally choose the alternative that bears more information reducing the uncertainty (and therefore the entropy). Given this, for MONK-1 and MONK-2 we choose a5, even though the latter doesn't have much of a gain. For MONK-3 we go for a2 which is higher than a5. 
+
+Now we can ask ourselves why a5. Well, a5 is the set with the highest cardinality, therefore any piece of information that contributes in making the probability uneven has an higher effect on the entropy. [ASSUMPTION: CHECK]
+
 ### Assignment 4
+
+*For splitting we choose the attribute that maximizes the information gain, Eq.3. Looking at Eq.3 how does the entropy of the subsets, Sk, look like when the information gain is maximized? How can we motivate using the information gain as a heuristic for picking an attribute for splitting? Think about reduction in entropy after the split and what the entropy implies.*
+
+
 ### Assignment 5
 ### Assignment 6    
 ### Assignment 7    
