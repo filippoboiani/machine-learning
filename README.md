@@ -47,8 +47,20 @@ Now we can ask ourselves why a5. Well, a5 is the set with the highest cardinalit
 
 *For splitting we choose the attribute that maximizes the information gain, Eq.3. Looking at Eq.3 how does the entropy of the subsets, Sk, look like when the information gain is maximized? How can we motivate using the information gain as a heuristic for picking an attribute for splitting? Think about reduction in entropy after the split and what the entropy implies.*
 
-In every step we select the attribute with the most information gain. Therefore, after having selected this the entropy is minimized. The entorpy of Sk is the minimum 
+In every step we select the attribute with the most information gain. Therefore, after having selected this the entropy is minimized. The entropy of Sk is the minimum.
 
 ### Assignment 5
+Train and test set errors for the three Monk datasets for the full trees:
+
+- | E_train | E_test 
+--- | --- | ---
+**MONK-1** | 1.0 | 0.828703703704
+**MONK-2** | 1.0 | 0.69212962963
+**MONK-3** | 1.0 | 0.944444444444
+
+The errors are computed using the predefined function check (Measure fraction of correctly classified samples) 
+
+If we check the resulted full decision tree against the training dataset we will have no error, since the tree depends on the training set. The test 
+From the result we can deduce the second dataset is the most difficult to train. 
 ### Assignment 6    
 ### Assignment 7    
