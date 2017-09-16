@@ -16,6 +16,8 @@ Dataset | Entropy
 **MONK-2** | 0.957117428265
 **MONK-3** | 0.999806132805
 
+The entropy is high since the distribution are binomial. 
+
 ### Assignment 2
 *Explain entropy for a uniform distribution and a non-uniform distribution, present some example distributions with high and low entropy.*
 
@@ -60,7 +62,15 @@ Train and test set errors for the three Monk datasets for the full trees:
 
 The errors are computed using the predefined function check (Measure fraction of correctly classified samples) 
 
-If we check the resulted full decision tree against the training dataset we will have no error, since the tree depends on the training set. The test 
+If we check the resulted full decision tree against the training dataset we will have no error, since the tree depends on the training set. 
 From the result we can deduce the second dataset is the most difficult to train. 
+
 ### Assignment 6    
+The deeper the decision tree, the lower the variance. The more superficial the higher variance. 
+
+On the other hand, bias refers to the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model.
+
 ### Assignment 7    
+
+Below we can see the plot for MONK-1 and MONK-3
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
