@@ -29,7 +29,7 @@ No distribution has high or low entropy per se. In general, discrete distributio
 When the probability of a particular event is far higher then the others, the uncertainty decreases accordingly. As an example, we can the take the overly-cited toss of a coin where the sides are equals. In this case the entropy is 0 because, no matter how we toss the coin, the result will be the same. Therefore, there is no uncertainty. Entropy is not an intrinsic property of a particular distribution, but instead, it depends on the parameters. 
 
 
-References: 
+**Reference**s: 
 - [Type of distributions](http://people.stern.nyu.edu/adamodar/New_Home_Page/StatFile/statdistns.htm)
 - [Entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)#Introduction)
 
@@ -72,5 +72,15 @@ On the other hand, bias refers to the error that is introduced by approximating 
 
 ### Assignment 7    
 
-Below we can see the plot for MONK-1 and MONK-3
-![alt text](https://github.com/filippoboiani/machine-learning/blob/master/plot.png "Fraction and Errors")
+Evaluation of the effect pruning has on the test error for the monk1 and monk3 datasets.
+
+Define the optimal partition into training and validation set. 
+
+![PLOT](https://github.com/filippoboiani/machine-learning/blob/master/plot.png "Fraction and Errors")
+
+Values | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 
+--- | --- | --- | --- | --- | --- | --- 
+**MONK-1 Mean** | 0.769398 | 0.796851 | 0.825578 | 0.8412037 | 0.849606 | 0.8605324
+**MONK-3 Mean** | 0.914212 | 0.939513 | 0.950995 | 0.9570833 | 0.955879 | 0.9540740
+**MONK-1 Variance** | 0.001768237 | 0.001454166 | 0.002145209 | 0.0020444315 | 0.0021446818 | 0.002203936
+**MONK-3 Variance** | 0.002567924 | 0.001636194 | 0.001057961 | 0.0011084769 | 0.0008425304 | 0.000803189

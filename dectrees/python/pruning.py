@@ -2,6 +2,7 @@ import monkdata as m
 import dtree as dtree
 import drawtree_qt5 as drawLib
 import random
+import numpy
 import matplotlib.pyplot as plt
 
 # creates 2 partition of a dataset with random shuffling
@@ -44,28 +45,57 @@ datasets = [{
 }]
 
 fractions = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
-results = {'monk1': [], 'monk3': []}
+
+results = {'monk1': [[0 for x in range(100)] for y in range(6)] , 'monk3': [[0 for x in range(100)] for y in range(6)]}
 # split the dataset in training and validation set. Building
 # the tree from the training set. 
 
 for dataset in datasets: 
     print "\n\nDataset:     ", dataset['name']
+    index = 0
     for f in fractions: 
         print "\n\nFraction:    ", f
-        monktrain, monkval = partition(dataset['ref'], f)
-        # build the dtree from the training set
-        decisionTree = dtree.buildTree(monktrain, m.attributes)
-        candidate = myPrune(decisionTree, monkval, dataset['test'])
-        results[dataset['name']].append(dtree.check(candidate, dataset['test']))
+        for i in range(100):
+            monktrain, monkval = partition(dataset['ref'], f)
+            # build the dtree from the training set
+            decisionTree = dtree.buildTree(monktrain, m.attributes)
+            candidate = myPrune(decisionTree, monkval, dataset['test'])
+            results[dataset['name']][index][i] = dtree.check(candidate, dataset['test'])
+        
+        index += 1    
 
 print "\nResults:"
 print results
-plt.plot(fractions, results['monk1'], color="blue", label="MONK-1")
-plt.plot(fractions, results['monk3'], color="red", label="MONK-3")
+
+averages = {
+    'monk1': [],
+    'monk3': []
+}
+
+variances = {
+    'monk1': [],
+    'monk3': []
+}
+
+for x in results['monk1']:
+    averages['monk1'].append(numpy.mean(x))
+    variances['monk1'].append(numpy.var(x))
+
+for x in results['monk3']:
+    averages['monk3'].append(numpy.mean(x))  
+    variances['monk3'].append(numpy.var(x))
+
+print "Mean:        ", averages
+print "Variances:   ", variances
+
+plt.plot(fractions, averages['monk1'], color="blue", label="MONK-1")
+plt.plot(fractions, averages['monk3'], color="red", label="MONK-3")
+plt.plot(fractions, variances['monk1'], color="green", label="MONK-1")
+plt.plot(fractions, variances['monk3'], color="yellow", label="MONK-3")
 plt.axis([0.3, 0.8, 0, 1])
 plt.ylabel('Classification Error')
 plt.xlabel('Fraction')
-plt.legend(loc='bottom right')
+plt.legend(loc='lower right')
 plt.show()
 # for i in range(0,1000000):
 #     monk1train, monk1val = partition(m.monk1, 0.6)
