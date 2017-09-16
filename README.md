@@ -54,7 +54,7 @@ In every step we select the attribute with the most information gain. Therefore,
 ### Assignment 5
 Train and test set errors for the three Monk datasets for the full trees:
 
-- | E_train | E_test 
+--- | E_train | E_test 
 --- | --- | ---
 **MONK-1** | 1.0 | 0.828703703704
 **MONK-2** | 1.0 | 0.69212962963
