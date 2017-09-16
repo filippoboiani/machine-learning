@@ -73,4 +73,4 @@ On the other hand, bias refers to the error that is introduced by approximating 
 ### Assignment 7    
 
 Below we can see the plot for MONK-1 and MONK-3
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/filippoboiani/machine-learning/blob/master/plot.png "Fraction and Errors")
