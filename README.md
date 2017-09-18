@@ -5,7 +5,10 @@
 ## Lab 1 
 
 ### Assignment 0
+All the 6 attributes have many values. Therefore we can have different configurations and a higher depth. 
 
+We believe the most difficult problem to learn is the second one because we have different possibilities. 
+(a1 = a2 = 1) or (a1 = a3 = 1) or (a1 = a2 = 1)
 ### Assignment 1
 
 Entropy of the datasets: 
@@ -22,12 +25,15 @@ The entropy is high since the distribution are binomial.
 *Explain entropy for a uniform distribution and a non-uniform distribution, present some example distributions with high and low entropy.*
 
 Entropy is the unpredictability of one event.
-An uniform distribution will have an high entropy (1.0) while an non-uniform distribution will be more difficult to guess and therefore will have a low entropy. 
+An uniform distribution will have an high entropy, while an non-uniform distribution will have a lower entropy. 
 
 No distribution has high or low entropy per se. In general, discrete distributions (like binomial, poisson, uniform etc...) tend to have high entropy when the events are equiprobable. 
 
 When the probability of a particular event is far higher then the others, the uncertainty decreases accordingly. As an example, we can the take the overly-cited toss of a coin where the sides are equals. In this case the entropy is 0 because, no matter how we toss the coin, the result will be the same. Therefore, there is no uncertainty. Entropy is not an intrinsic property of a particular distribution, but instead, it depends on the parameters. 
 
+Examples: 
+- Die toss (uniform, high entropy)
+- Fake die toss (non uniform, lower entropy)
 
 **Reference**s: 
 - [Type of distributions](http://people.stern.nyu.edu/adamodar/New_Home_Page/StatFile/statdistns.htm)
@@ -65,10 +71,18 @@ The errors are computed using the predefined function check (Measure fraction of
 If we check the resulted full decision tree against the training dataset we will have no error, since the tree depends on the training set. 
 From the result we can deduce the second dataset is the most difficult to train. 
 
-### Assignment 6    
-The deeper the decision tree, the lower the variance. The more superficial the higher variance. 
+### Assignment 6  
+*Explain pruning from a bias-variance tradeoff perspective.*
 
-On the other hand, bias refers to the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model.
+A complicated decision tree (e.g. deep) has **low bias and high variance**. The bias-variance tradeoff does depend on the depth of the tree. If the number of levels is too high i.e a complicated decision tree, the model tends to overfit. The tree then will have a great deal of condition to be satisfied. 
+
+Only if all the conditions are satisfied, a decision is reached. This will work very well for the training set as you are continuously narrowing down on the data. The tree becomes highly tuned to the data present in the training set.
+
+Decision tree is sensitive to where it splits and how it splits. Therefore, even small changes in input variable values might result in very different tree structure. For example, when a new data point is fed, even if one of the parameters deviates slightly, the condition will not be met and it will take the wrong branch.
+
+By pruning we reduce the tree depth and the complexity of the model, which means the model doesn't overfit. The more we prune the higher the bias becomes and the variance decreases. 
+
+(Bias refers to the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model).
 
 ### Assignment 7    
 
