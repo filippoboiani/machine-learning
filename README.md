@@ -8,7 +8,7 @@
 All the 6 attributes have many values. Therefore we can have different configurations and a higher depth. 
 
 We believe the most difficult problem to learn is the second one because we have different possibilities. 
-(a1 = a2 = 1) or (a1 = a3 = 1) or (a1 = a2 = 1)
+(a1 = a2 = 1) or (a1 = a3 = 1) or (a1 = a4 = 1) etc...
 ### Assignment 1
 
 Entropy of the datasets: 
