@@ -24,8 +24,10 @@ print "Sample class: " + m.Sample.__doc__
 
 for dataset in datasets:
     print "    Dataset: " + dataset['name']
+    i = 0
     for attribute in m.attributes:
-        print dtree.averageGain(dataset['ref'], attribute)
+        print "a%s - %s"%(i, dtree.averageGain(dataset['ref'], attribute))
+        i = i +1
     
 
         

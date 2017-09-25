@@ -1,8 +1,9 @@
 # Machine Learning
 - Riccardo Sibani 
 - Filippo Boiani
+- Piotr Mrowczynski
 
-## Lab 1 
+## Decision trees
 
 ### Assignment 0
 All the 6 attributes have many values. Therefore we can have different configurations and a higher depth. 
@@ -20,6 +21,10 @@ Dataset | Entropy
 **MONK-3** | 0.999806132805
 
 The entropy is high since the distribution are binomial. 
+
+```
+python/entropy.py
+```
 
 ### Assignment 2
 *Explain entropy for a uniform distribution and a non-uniform distribution, present some example distributions with high and low entropy.*
@@ -51,6 +56,10 @@ To grow the decision tree we generally choose the alternative that bears more in
 
 Now we can ask ourselves why a5. Well, a5 is the set with the highest cardinality, therefore any piece of information that contributes in making the probability uneven has an higher effect on the entropy. [ASSUMPTION: CHECK]
 
+```
+python/inform_gain.py
+```
+
 ### Assignment 4
 
 *For splitting we choose the attribute that maximizes the information gain, Eq.3. Looking at Eq.3 how does the entropy of the subsets, Sk, look like when the information gain is maximized? How can we motivate using the information gain as a heuristic for picking an attribute for splitting? Think about reduction in entropy after the split and what the entropy implies.*
@@ -71,18 +80,40 @@ The errors are computed using the predefined function check (Measure fraction of
 If we check the resulted full decision tree against the training dataset we will have no error, since the tree depends on the training set. 
 From the result we can deduce the second dataset is the most difficult to train. 
 
+
+```
+python/build_dec_trees.py
+```
+
+Function build_dec_trees.py will give errors for training and test sets for different depths of the tree. It occurs that sometimes
+depth does not need to be big to significatnly reduce variance, and in one case low depth improved variance in test set.
+
 ### Assignment 6  
 *Explain pruning from a bias-variance tradeoff perspective.*
 
-A complicated decision tree (e.g. deep) has **low bias and high variance**. The bias-variance tradeoff does depend on the depth of the tree. If the number of levels is too high i.e a complicated decision tree, the model tends to overfit. The tree then will have a great deal of condition to be satisfied. 
+A complicated decision tree (e.g. deep) has **low bias and high variance**. The bias-variance tradeoff does depend on the depth of the tree.
 
-Only if all the conditions are satisfied, a decision is reached. This will work very well for the training set as you are continuously narrowing down on the data. The tree becomes highly tuned to the data present in the training set.
+If the number of levels is too high i.e a complicated decision tree, the model tends to overfit.
 
-Decision tree is sensitive to where it splits and how it splits. Therefore, even small changes in input variable values might result in very different tree structure. For example, when a new data point is fed, even if one of the parameters deviates slightly, the condition will not be met and it will take the wrong branch.
+The tree then will have a great deal of condition to be satisfied.
 
-By pruning we reduce the tree depth and the complexity of the model, which means the model doesn't overfit. The more we prune the higher the bias becomes and the variance decreases. 
+Only if all the conditions are satisfied, a decision is reached. This will work very well for the training set as you are continuously
 
-(Bias refers to the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model).
+narrowing down on the data. The tree becomes highly tuned to the data present in the training set.
+
+Decision tree is sensitive to where it splits and how it splits. Therefore, even small changes in input variable values might result in
+
+very different tree structure. For example, when a new data point is fed, even if one of the parameters deviates slightly, the condition
+
+will not be met and it will take the wrong branch.
+
+By pruning we reduce the tree depth and the complexity of the model, which means the model doesn't overfit. The more we prune the higher
+
+the bias becomes and the variance decreases.
+
+(Bias refers to the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler
+
+model).
 
 ### Assignment 7    
 
@@ -98,3 +129,4 @@ Values | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8
 **MONK-3 Mean** | 0.914212 | 0.939513 | 0.950995 | 0.9570833 | 0.955879 | 0.9540740
 **MONK-1 Variance** | 0.001768237 | 0.001454166 | 0.002145209 | 0.0020444315 | 0.0021446818 | 0.002203936
 **MONK-3 Variance** | 0.002567924 | 0.001636194 | 0.001057961 | 0.0011084769 | 0.0008425304 | 0.000803189
+

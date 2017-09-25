@@ -67,7 +67,8 @@ def drawTree(tree):
     win = MyMainWindow(tree)  
 
     win.show()
-    sys.exit(application.exec_())
+    return application.exec_()
+    #sys.exit()
 
 
 
