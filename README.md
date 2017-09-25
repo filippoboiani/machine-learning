@@ -80,7 +80,6 @@ The errors are computed using the predefined function check (Measure fraction of
 If we check the resulted full decision tree against the training dataset we will have no error, since the tree depends on the training set. 
 From the result we can deduce the second dataset is the most difficult to train. 
 
-
 ```
 python/build_dec_trees.py
 ```
@@ -115,18 +114,31 @@ the bias becomes and the variance decreases.
 
 model).
 
-### Assignment 7    
+### Assignment 7
 
-Evaluation of the effect pruning has on the test error for the monk1 and monk3 datasets.
+In this exercise had grown the full tree, and then post-prune (applied Reduced Error Pruning). This means, we split data
+into training and validation sets.
 
-Define the optimal partition into training and validation set. 
+We performed the complete pruning by repeatedly pruning the tree candidate into prunes. If the prune is better then candidate,
+we perform further pruning on the prune to pick the tree which gives the best classification performance on the validation dataset.
+
+Pruning is stopped when all the pruned trees perform worse than the current candidate.
+
+This produces smallest version of most accurate subtree.
+
+We also evaluated the effect pruning has on the test error for the monk1 and monk3 datasets.
+
+We define the optimal partition into training and validation set.
 
 ![PLOT](https://github.com/filippoboiani/machine-learning/blob/master/plot.png "Fraction and Errors")
 
 Values | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 
 --- | --- | --- | --- | --- | --- | --- 
-**MONK-1 Mean** | 0.769398 | 0.796851 | 0.825578 | 0.8412037 | 0.849606 | 0.8605324
-**MONK-3 Mean** | 0.914212 | 0.939513 | 0.950995 | 0.9570833 | 0.955879 | 0.9540740
+**MONK-1 Accuracy Mean** | 0.769398 | 0.796851 | 0.825578 | 0.8412037 | 0.849606 | 0.8605324
+**MONK-3 Accuracy Mean** | 0.914212 | 0.939513 | 0.950995 | 0.9570833 | 0.955879 | 0.9540740
 **MONK-1 Variance** | 0.001768237 | 0.001454166 | 0.002145209 | 0.0020444315 | 0.0021446818 | 0.002203936
 **MONK-3 Variance** | 0.002567924 | 0.001636194 | 0.001057961 | 0.0011084769 | 0.0008425304 | 0.000803189
 
+```
+python/pruning.py
+```
